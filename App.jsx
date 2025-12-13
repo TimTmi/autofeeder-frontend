@@ -6,16 +6,16 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Header from "components/Header.jsx";
+import Header from "./components/Header.jsx";
 import VBox from "./components/VBox";
-import Signup from "pages/Signup/Signup.jsx";
-import Signin from "pages/Signin/Signin.jsx";
-import Home from "pages/Home/Home.jsx";
-import FeederStatus from "pages/FeederStatus/FeederStatus.jsx";
-import FeedingSchedule from "pages/FeedingSchedule/FeedingSchedule.jsx";
-import FeedingHistory from "pages/FeedingHistory/FeedingHistory.jsx";
-import Chatbot from "pages/Chatbot/Chatbot.jsx";
-import Settings from "pages/Settings/Settings.jsx";
+import Signup from "./pages/Signup/Signup.jsx";
+import Signin from "./pages/Signin/Signin.jsx";
+import Home from "./pages/Home/Home.jsx";
+import FeederStatus from "./pages/FeederStatus/FeederStatus.jsx";
+import FeedingSchedule from "./pages/FeedingSchedule/FeedingSchedule.jsx";
+import FeedingHistory from "./pages/FeedingHistory/FeedingHistory.jsx";
+import Chatbot from "./pages/Chatbot/Chatbot.jsx";
+import Settings from "./pages/Settings/Settings.jsx";
 
 const AuthLayout = () => {
   return (
