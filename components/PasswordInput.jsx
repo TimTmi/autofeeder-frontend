@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const PasswordInput = ({ placeholder = "Password", id = "password" }) => {
+const PasswordInput = ({
+  placeholder = "Password",
+  id = "password",
+  ...props
+}) => {
   const [show, setShow] = useState(false);
 
   return (
@@ -12,6 +16,7 @@ const PasswordInput = ({ placeholder = "Password", id = "password" }) => {
         className="border rounded-lg p-4 w-full pr-12 border-secondary 
                    focus:outline-none focus:border-primary/60 focus:bg-primary/20
                    transition-colors"
+        {...props}
       />
 
       <button

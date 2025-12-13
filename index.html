@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoFeeder</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Tailwind Play CDN to enable utility classes used throughout the app -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4F46E5",
+              secondary: "#6B7280",
+            },
+            borderRadius: {
+              "2xl": "1rem",
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <script type="module" src="/main.jsx"></script>
+  </body>
+</html>
