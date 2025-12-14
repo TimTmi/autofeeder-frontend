@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import HBox from "../../components/HBox";
-import VBox from "../../components/VBox";
 import PasswordInput from "../../components/PasswordInput";
 import EatingCat from "../../assets/images/eating-cat.jpg";
+import Icon from "../../assets/images/icon.png";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -25,52 +24,72 @@ const Signin = () => {
   };
 
   return (
-    <HBox className="flex-1 gap-10">
-      <div
-        className="flex-1 bg-cover bg-center rounded-xl"
-        style={{ backgroundImage: `url(${EatingCat})` }}
-      />
+    <div className="flex w-screen h-screen ">
+      <div className="flex w-full h-full bg-white overflow-hidden shadow-2xl">
+        
+        <Link to="/home" className="absolute top-6 right-8 flex items-center gap-2 hover:opacity-50">
+          <img src={Icon} alt="Autofeeder" className="w-10 h-10" />
+          <div className="text-xl font-bold">FoodFPet</div>
+        </Link>
 
-      <VBox className="flex-1 justify-center items-start">
-        <form onSubmit={handleSubmit} className="w-1/2 gap-4 flex flex-col">
-          <h1 className="text-4xl font-bold">Sign in</h1>
-
-          <label htmlFor="email" className="sr-only">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            className="border rounded-lg p-4 border-2 border-secondary focus:outline-none focus:border-primary/60 focus:bg-primary/20 transition-colors"
+        <div className="w-1/2 relative">
+          <img
+            src={EatingCat}
+            alt="Eating cat"
+            className="w-full h-full object-cover"
           />
+        </div>
 
-          <label htmlFor="password" className="sr-only">
-            Password
-          </label>
-          <PasswordInput
-            id="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <div className="w-1/2 flex flex-col justify-center items-center p-10">
+          <form onSubmit={handleSubmit} className="w-1/2 gap-4 flex flex-col">
+            <div>
+              <h1 className="text-4xl font-bold mb-2">Sign in</h1>
+              <p className="text-gray-500">
+                Please login to feed your pet with FoodFPet
+              </p>
+            </div>
 
-          {error && <div className="text-red-600">{error}</div>}
+            <label htmlFor="email" className="sr-only">
+              Email
+            </label>
 
-          <button
-            type="submit"
-            className="p-4 rounded-lg text-center font-semibold bg-primary/60 hover:bg-primary/80 active:bg-primary"
-          >
-            Sign in
-          </button>
+            <input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="border rounded-lg p-4 border-1 border-[#b89f84]"
+            />
 
-          <Link to="/signup" className="text-center hover:text-primary">
-            Need an account? Sign up
-          </Link>
-        </form>
-      </VBox>
-    </HBox>
+            <label htmlFor="password" className="sr-only">
+              Password
+            </label>
+            <PasswordInput
+              id="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            {error && <div className="text-red-600">{error}</div>}
+
+            <button
+              type="submit"
+              className="p-4 rounded-lg text-center text-white font-semibold bg-[#b89f84] hover:bg-[#a68d73] active:bg-[#b89f84]"
+            >
+              Sign in
+            </button>
+
+            <Link
+              to="/signup"
+              className="text-gray-600 text-center hover:text-[#b89f84] transition-colors"
+            >
+              Need an account? <span className="font-semibold">Sign up</span>
+            </Link>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

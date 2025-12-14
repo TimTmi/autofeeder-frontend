@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import HBox from "../../components/HBox";
-import VBox from "../../components/VBox";
 import PasswordInput from "../../components/PasswordInput";
 import EatingCat from "../../assets/images/eating-cat.jpg";
+import Icon from "../../assets/images/icon.png";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -27,75 +26,84 @@ const Signup = () => {
   };
 
   return (
-    <HBox className="flex-1 min-h-0 gap-10">
-      <div
-        className="flex-1 bg-cover bg-center rounded-xl"
-        style={{ backgroundImage: `url(${EatingCat})` }}
-      />
+    <div className="flex w-screen h-screen ">
+      <div className="flex w-full h-full bg-white overflow-hidden shadow-2xl">
+        <Link
+          to="/home"
+          className="absolute top-6 right-8 flex items-center gap-2 hover:opacity-50"
+        >
+          <img src={Icon} alt="Autofeeder" className="w-10 h-10" />
+          <div className="text-xl font-bold">FoodFPet</div>
+        </Link>
 
-      <VBox className="flex-1 justify-center items-start">
-        <form onSubmit={handleSubmit} className="w-1/2 gap-4 flex flex-col">
-          <h1 className="text-4xl font-bold">Sign up</h1>
-
-          <label htmlFor="name" className="sr-only">
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Full name"
-            className="border rounded-lg p-4 border-2 border-secondary focus:outline-none focus:border-primary/60 focus:bg-primary/20 transition-colors"
+        <div className="w-1/2 relative">
+          <img
+            src={EatingCat}
+            alt="Eating cat"
+            className="w-full h-full object-cover"
           />
+        </div>
 
-          <label htmlFor="email" className="sr-only">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            className="border rounded-lg p-4 border-2 border-secondary focus:outline-none focus:border-primary/60 focus:bg-primary/20 transition-colors"
-          />
-
-          <label htmlFor="password" className="sr-only">
-            Password
-          </label>
-          <PasswordInput
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <label htmlFor="confirm" className="sr-only">
-            Confirm password
-          </label>
-          <PasswordInput
-            id="confirm"
-            placeholder="Confirm password"
-            value={confirm}
-            onChange={(e) => setConfirm(e.target.value)}
-          />
-
-          {error && <div className="text-red-600">{error}</div>}
-
-          <button
-            type="submit"
-            className="p-4 rounded-lg text-center font-semibold bg-primary/60 hover:bg-primary/80 active:bg-primary"
+        <div className="w-1/2 flex flex-col justify-center items-center p-12">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full max-w-md flex flex-col gap-6"
           >
-            Sign up
-          </button>
+            <div>
+              <h1 className="text-4xl font-bold mb-2">Sign up</h1>
+              <p className="text-gray-500">
+                Sign up to feed your pet with FoodFPet
+              </p>
+            </div>
 
-          <Link to="/signin" className="text-center hover:text-primary">
-            Already have an account? Sign in
-          </Link>
-        </form>
-      </VBox>
-    </HBox>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Full name"
+              className="w-full border border-[#b89f84] rounded-lg p-4 focus:outline-none focus:border-[#b89f84] transition-colors"
+            />
+
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="w-full border border-[#b89f84] rounded-lg p-4 focus:outline-none focus:border-[#b89f84] transition-colors"
+            />
+
+            <PasswordInput
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <PasswordInput
+              placeholder="Confirm password"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+            />
+
+            {error && <div className="text-red-600 text-sm">{error}</div>}
+
+            <button
+              type="submit"
+              className="w-full p-4 rounded-lg text-white font-semibold bg-[#b89f84] hover:bg-[#a68d73] transition-colors"
+            >
+              Sign up
+            </button>
+
+            <Link
+              to="/signin"
+              className="text-center text-gray-600 hover:text-[#b89f84] transition-colors"
+            >
+              Already have an account?{" "}
+              <span className="font-semibold">Sign in</span>
+            </Link>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

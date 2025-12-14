@@ -40,6 +40,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Navigate to="/signin" />} />
         <Route element={<AuthLayout />}>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />

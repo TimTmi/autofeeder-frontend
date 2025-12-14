@@ -13,8 +13,8 @@ const PasswordInput = ({
         id={id}
         type={show ? "text" : "password"}
         placeholder={placeholder}
-        className="border rounded-lg p-4 w-full pr-12 border-secondary 
-                   focus:outline-none focus:border-primary/60 focus:bg-primary/20
+        className="border rounded-lg p-4 w-full pr-12 border-[#b89f84] 
+                   focus:outline-none focus:border-[#b89f84]/60 focus:bg-[#b89f84]/20
                    transition-colors"
         {...props}
       />
@@ -25,7 +25,6 @@ const PasswordInput = ({
         className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
       >
         {show ? (
-          // Password is visible → use "opened" eye
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
